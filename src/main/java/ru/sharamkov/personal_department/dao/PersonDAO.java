@@ -66,6 +66,13 @@ public class PersonDAO implements PersonDAOI {
         return person;
     }
 
+    @Override
+    public Person loadPersonById(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        Person person = (Person) session.load(Person.class, id);
+        return person;
+    }
+
 
     @Override
     public void addPerson(Person person) {
@@ -75,9 +82,9 @@ public class PersonDAO implements PersonDAOI {
 
 
     @Override
-    public void deletePerson(Long personId) {
+    public void deletePerson(Person person) {
         Session session = sessionFactory.getCurrentSession();
-        session.delete(session.load(Person.class, personId));
+        session.delete(person);
     }
 
 

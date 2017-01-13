@@ -54,9 +54,9 @@ public class DepartmentDAO implements DepartmentDAOI {
 
 
     @Override
-    public void deleteDepartment(Long id) {
+    public void deleteDepartment(Department department) {
         Session session = sessionFactory.getCurrentSession();
-        session.delete(session.load(Department.class, id));
+        session.delete(department);
     }
 
 

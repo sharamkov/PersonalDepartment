@@ -17,9 +17,11 @@ public interface PersonDAOI {
 
     public Person getPersonById(Long id);
 
+    public Person loadPersonById(Long id);
+
     public void addPerson(Person person);
 
-    public void deletePerson(Long personId);
+    public void deletePerson(Person person);
 
 
 

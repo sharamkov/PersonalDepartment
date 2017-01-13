@@ -89,12 +89,10 @@ public class Service {
                                   String personPosition, int[] personDateOfBirth, int[] employmentDate, Long personDepartmentId) {
 
         Person person;
-
         Calendar calendar = Calendar.getInstance();
-        calendar.set(personDateOfBirth[2], personDateOfBirth[1] - 1, personDateOfBirth[0]);
 
         if (personId != -1L) {
-            person = personDAOI.getPersonById(personId);
+            person = personDAOI.loadPersonById(personId);
         } else {
             person = new Person();
         }
@@ -122,7 +120,7 @@ public class Service {
         Department department;
 
         if (departmentId != -1L) {
-            department = departmentDAOI.getDepartmentById(departmentId);
+            department = departmentDAOI.loadDepartmentById(departmentId);
         } else {
             department = new Department();
         }
@@ -139,12 +137,14 @@ public class Service {
 
     @Transactional
     public void deleteDepartment(Long departmentId) {
-        departmentDAOI.deleteDepartment(departmentId);
+        Department department = departmentDAOI.loadDepartmentById(departmentId);
+        departmentDAOI.deleteDepartment(department);
     }
 
     @Transactional
     public void deletePerson(Long id) {
-        personDAOI.deletePerson(id);
+        Person person = personDAOI.loadPersonById(id);
+        personDAOI.deletePerson(person);
     }
 
 }

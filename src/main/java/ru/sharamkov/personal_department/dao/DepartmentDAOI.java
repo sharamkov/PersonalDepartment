@@ -15,5 +15,5 @@ public interface DepartmentDAOI {
 
     public void addDepartment(Department department);
 
-    public void deleteDepartment(Long id);
+    public void deleteDepartment(Department department);
 }
