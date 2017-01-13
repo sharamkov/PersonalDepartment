@@ -1,0 +1,1 @@
+<b>PersonalDepartment is just a tiny web application where Spring, Hibernate and Servlets are used.</b>
