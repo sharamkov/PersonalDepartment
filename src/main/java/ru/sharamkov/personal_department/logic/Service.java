@@ -109,7 +109,10 @@ public class Service {
         person.setEmploymentDate(calendar.getTime());
         person.setPersonDepartment(departmentDAOI.loadDepartmentById(personDepartmentId));
 
-        personDAOI.addOrUpdatePerson(person);
+        if (personId == -1L) {
+            personDAOI.addPerson(person);
+        }
+
 
     }
 
@@ -127,8 +130,9 @@ public class Service {
         department.setDepartmentName(departmentName);
         department.setDepartmentCodeNumber(departmentCodeNumber);
 
-
-        departmentDAOI.addOrUpdateDepartment(department);
+        if (departmentId == -1L) {
+            departmentDAOI.addDepartment(department);
+        }
 
 
     }

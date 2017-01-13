@@ -13,7 +13,7 @@ public interface DepartmentDAOI {
 
     public Department getDepartmentById(Long id);
 
-    public void addOrUpdateDepartment(Department department);
+    public void addDepartment(Department department);
 
     public void deleteDepartment(Long id);
 }

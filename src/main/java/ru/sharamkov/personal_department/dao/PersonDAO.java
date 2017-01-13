@@ -68,9 +68,9 @@ public class PersonDAO implements PersonDAOI {
 
 
     @Override
-    public void addOrUpdatePerson(Person person) {
+    public void addPerson(Person person) {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(person);
+        session.save(person);
     }
 
 

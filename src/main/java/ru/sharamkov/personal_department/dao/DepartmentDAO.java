@@ -42,11 +42,11 @@ public class DepartmentDAO implements DepartmentDAOI {
 
 
     @Override
-    public void addOrUpdateDepartment(Department department) {
+    public void addDepartment(Department department) {
         Session session = sessionFactory.getCurrentSession();
 
         try {
-            session.saveOrUpdate(department);
+            session.save(department);
         } catch (ConstraintViolationException e) {
             throw new PersonalDepartmentException("Illegal code duplication: a department with code " + department.getDepartmentCodeNumber() + " already exists");
         }
